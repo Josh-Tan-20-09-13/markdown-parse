@@ -53,4 +53,61 @@ public class MarkdownParseTest { //markdownparsetest class file
         ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
         assertEquals(linksReturned.toString(), "[https://something.com, some-page.html]");
     }
+
+    @Test
+    public void testDefault1() throws Exception {
+        setup("default-files/test-file.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[https://something.com, some-page.html]");
+    }
+
+    @Test
+    public void testDefault2() throws Exception {
+        setup("default-files/test-file2.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[https://something.com, some-page.html]");
+    }
+
+    @Test
+    public void testDefault3() throws Exception {
+        setup("default-files/test-file3.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[]");
+    }
+
+    @Test
+    public void testDefault4() throws Exception {
+        setup("default-files/test-file4.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[]");
+    }
+
+    @Test
+    public void testDefault5() throws Exception {
+        setup("default-files/test-file5.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[]");
+    }
+
+    @Test
+    public void testDefault6() throws Exception {
+        setup("default-files/test-file6.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[page.com]");
+    }
+
+    @Test
+    public void testDefault7() throws Exception {
+        setup("default-files/test-file7.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[]");
+    }
+
+    @Test
+    public void testDefault8() throws Exception {
+        setup("default-files/test-file8.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[a link on the first line]");
+    }
+
 }
