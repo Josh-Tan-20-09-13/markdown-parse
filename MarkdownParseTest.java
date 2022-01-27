@@ -1,10 +1,56 @@
 import static org.junit.Assert.*; // Import junit assert
 import org.junit.*; // import junit
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+
 // newline
 public class MarkdownParseTest { //markdownparsetest class file
+
+    String[] f;
+
     @Test // signify that below method is a test
     public void addition() { // the test method
         assertEquals(2, 1 + 1); // the condition that is fulfilled for successful test
     }
-}
 
+    public void setup(String fName) throws Exception {
+        f = Files.readString(Path.of(fName)).split("\n");
+    }
+
+    @Test
+    public void customTest1() throws Exception {
+        setup("markdown-files/new.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[sexy.hostname.cool]");
+    }
+
+    @Test
+    public void customTest2() throws Exception {
+        setup("markdown-files/new-file.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[https://nowhere.org, http://IHaveBeenExpectingYou.com, ftp://legithostname.host, https://canvas.ucsd.edu]");
+    }
+
+    @Test
+    public void customTest3() throws Exception {
+        setup("markdown-files/other-case.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[https://link.com]");
+    }
+
+    @Test
+    public void customTest4() throws Exception {
+        setup("markdown-files/othercase.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[https://test.com, ftp://legitname.org, sexy.hostname.here]");
+    }
+
+    @Test
+    public void customTest5() throws Exception {
+        setup("markdown-files/test-file.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[https://something.com, some-page.html]");
+    }
+}
