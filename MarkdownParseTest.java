@@ -111,10 +111,19 @@ public class MarkdownParseTest { //markdownparsetest class file
     }
 
     @Test
-    public void testFailure() throws Exception {
+    public void testEmpty() throws Exception {
         setup("markdown-files/empty.md");
         ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
         assertEquals(linksReturned.toString(), "[]");
     }
+
+    @Test
+    public void testAnother() throws Exception {
+        setup("markdown-files/another.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "[]");
+    }
+
+}
 
 }
