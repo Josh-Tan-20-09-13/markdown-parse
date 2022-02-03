@@ -93,7 +93,7 @@ public class MarkdownParseTest { //markdownparsetest class file
     public void testDefault6() throws Exception {
         setup("default-files/test-file6.md");
         ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
-        assertEquals(linksReturned.toString(), "[page.com]");
+        assertEquals(linksReturned.toString(), "[]");
     }
 
     @Test
