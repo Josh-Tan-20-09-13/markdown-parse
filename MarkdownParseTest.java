@@ -110,4 +110,11 @@ public class MarkdownParseTest { //markdownparsetest class file
         assertEquals(linksReturned.toString(), "[a link on the first line]");
     }
 
+    @Test
+    public void testFailure() throws Exception {
+        setup("markdown-files/empty.md");
+        ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
+        assertEquals(linksReturned.toString(), "Wrong text");
+    }
+
 }
