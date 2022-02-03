@@ -32,7 +32,7 @@ public class MarkdownParse {
             } else if (c == ')' && started) {
                 started = false;
                 if (!retString.equals("")) {
-                    Pattern pattern = Pattern.compile("(?<!\\!)\\[.*\\]\\(" + retString + "\\)", Pattern.CASE_INSENSITIVE);
+                    Pattern pattern = Pattern.compile("(?<![\\!\\[\\]])\\[.*\\]\\(" + retString + "\\)", Pattern.CASE_INSENSITIVE);
                     if (pattern.matcher(line).find()) {
                         toReturn.add(retString);
                     }
