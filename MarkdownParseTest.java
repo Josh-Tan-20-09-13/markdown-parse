@@ -114,7 +114,7 @@ public class MarkdownParseTest { //markdownparsetest class file
     public void testFailure() throws Exception {
         setup("markdown-files/empty.md");
         ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
-        assertEquals(linksReturned.toString(), "Wrong text");
+        assertEquals(linksReturned.toString(), "[]");
     }
 
 }
