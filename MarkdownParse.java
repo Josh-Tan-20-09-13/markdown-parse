@@ -32,10 +32,22 @@ public class MarkdownParse {
             } else if (c == ')' && started) {
                 started = false;
                 if (!retString.equals("")) {
-                    Pattern pattern = Pattern.compile("(?<![\\!\\[\\]])\\[.*\\]\\(" + retString + "\\)", Pattern.CASE_INSENSITIVE);
-                    if (pattern.matcher(line).find()) {
-                        toReturn.add(retString);
-                    }
+                    ArrayList<String> possibleLinks = new ArrayList<String>();
+                        for (String j : retString.split("\\(")) {
+                            Pattern pattern = Pattern.compile("[^a-zA-Z0-9.&:/%=\\-_?;@+,]", Pattern.CASE_INSENSITIVE);
+
+                            if (j != null && !pattern.matcher(j).find()) {
+                                
+                                Pattern link = Pattern.compile("(?<![\\!\\[\\]])\\[.*\\]\\(" + j + "\\)", Pattern.CASE_INSENSITIVE);
+                                if (link.matcher(line).find()) {
+                                    toReturn.add(j);
+                                }
+
+                            }
+
+                        }
+
+
                 }
                 retString = "";
             }

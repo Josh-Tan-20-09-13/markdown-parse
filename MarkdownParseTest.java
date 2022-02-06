@@ -107,7 +107,7 @@ public class MarkdownParseTest { //markdownparsetest class file
     public void testDefault8() throws Exception {
         setup("default-files/test-file8.md");
         ArrayList<String> linksReturned = MarkdownParse.getLinks(f);
-        assertEquals(linksReturned.toString(), "[a link on the first line]");
+        assertEquals(linksReturned.toString(), "[]");
     }
 
     @Test
