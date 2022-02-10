@@ -28,5 +28,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Compile and Run
         run: |
-          javac -cp lib/junit.jar:lib/hamcrest.jar:. MarkdownParse.java MarkdownParseTest.java
-          java -cp lib/junit.jar:lib/hamcrest.jar:. org.junit.runner.JUnitCore MarkdownParseTest
+          make test
