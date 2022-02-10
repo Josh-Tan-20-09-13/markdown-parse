@@ -11,4 +11,4 @@ MarkdownParseTest.class: MarkdownParseTest.java MarkdownParse.class
 	javac -cp lib/hamcrest.jar:lib/junit.jar:. MarkdownParseTest.java 
 
 test: MarkdownParseTest.class
-	java -cp lib/hamcrest.jar:lib/junit.jar:. MarkdownParseTest
+	java -cp lib/hamcrest.jar:lib/junit.jar:. org.junit.runner.JUnitCore MarkdownParseTest
