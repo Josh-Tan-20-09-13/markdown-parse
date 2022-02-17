@@ -38,7 +38,7 @@ public class MarkdownParse {
 
                             if (j != null && !pattern.matcher(j).find()) {
                                 
-                                Pattern link = Pattern.compile("(?<![\\!\\[\\]])\\[.*\\]\\(" + j + "\\)", Pattern.CASE_INSENSITIVE);
+                                Pattern link = Pattern.compile("(?<![\\!\\[\\]])\\[.*\\]\\([[:space:]]*" + Pattern.quote(j) + "[[:space:]]*\\)", Pattern.CASE_INSENSITIVE);
                                 if (link.matcher(line).find()) {
                                     toReturn.add(j);
                                 }
