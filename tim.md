@@ -1,1 +1,1 @@
-[text](test.com?a=1)
+[text](test.com?a=(1))
