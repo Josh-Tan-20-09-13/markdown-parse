@@ -34,7 +34,7 @@ public class MarkdownParse {
                 if (!retString.equals("")) {
                     ArrayList<String> possibleLinks = new ArrayList<String>();
                         for (String j : retString.split("\\(")) {
-                            String j = retString;
+                            System.out.println(retString);
                             Pattern pattern = Pattern.compile("[^a-zA-Z0-9.&:/%=\\-_?;@+,]", Pattern.CASE_INSENSITIVE);
 
                             if (j != null && !pattern.matcher(j).find()) {
