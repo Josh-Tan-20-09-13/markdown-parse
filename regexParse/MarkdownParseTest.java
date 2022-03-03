@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class MarkdownParseTest {
+    /*
     @Test
     public void testFile1() throws IOException {
         String contents= Files.readString(Path.of("./test-file.md"));
@@ -34,6 +35,7 @@ public class MarkdownParseTest {
         List<String> expect = List.of("a.com");
         assertEquals(expect, MarkdownParse.getLinks(contents));
     }
+    */
 
     @Test
     public void testSnip1() throws IOException {
